@@ -1,0 +1,29 @@
+@{
+    ViewData["Title"] = "Inicio";
+}
+
+<h1 class="d-flex justify-content-center align-center mb-5">Productos</h1>
+
+<table class="table">
+    <thead>
+        <th scope="col">Id</th>
+        <th scope="col">Producto</th>
+        <th scope="col">Descripcion</th>
+        <th scope="col">Acciones</th>
+    </thead>
+
+    @foreach(var item in Model){
+      <tr>
+        <td>@item.Id</td>
+        <td>@item.Name</td>
+        <td>@item.Description</td>
+        <td>
+            <a class="btn btn-primary" asp-controller="Products" asp-action="Details" asp-route-id="@item.Id">Detalles</a>
+            <a class="btn btn-danger" asp-controller="Products" asp-action="" asp-route-id="">Eliminar</a>
+            <a class="btn btn-success" asp-controller="Products" asp-action="" asp-route-id="">Crear</a>
+
+        </td>
+      </tr>
+    }
+
+</table>

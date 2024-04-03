@@ -1,3 +1,8 @@
+@{
+    ViewData ["Title"] = "Inicio";
+}
+<h1 class="d-flex justify-content-center align-center mb-5">Usuarios</h1>
+
 <table class="table" >
     <thead >
         <th scope="col">Id</td>
@@ -16,7 +21,7 @@
             <td>@item.Email</td>
             <td>@item.BirthDate</td>
             <td>
-                <a class="btn btn-primary" asp-route-itemid="@item.Id">Detalles</a>
+                <a class="btn btn-primary" asp-route-id="@item.Id" asp-controller="Users" asp-action="Details">Detalles</a>
                 <a class="btn btn-danger" >Eliminar</a>
                 <a class="btn btn-success" >Crear</a>
 
