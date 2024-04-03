@@ -1,0 +1,26 @@
+<table class="table" >
+    <thead >
+        <th scope="col">Id</td>
+        <th scope="col">Nombres</th>
+        <th scope="col">Apellidos</th>
+        <th scope="col">Email</th>
+        <th scope="col">Fecha Nacimiento</th>
+        <th scope="col">Acciones</th>
+    </thead>
+
+    @foreach (var item in Model){
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>@item.LastName</td>
+            <td>@item.Email</td>
+            <td>@item.BirthDate</td>
+            <td>
+                <a class="btn btn-primary" asp-route-itemid="@item.Id">Detalles</a>
+                <a class="btn btn-danger" >Eliminar</a>
+                <a class="btn btn-success" >Crear</a>
+
+            </td>
+        </tr>
+    }
+</table>
