@@ -1,0 +1,25 @@
+
+@{
+    ViewData["Title"] = "Actualizar";
+}
+
+<form asp-action="UpdateUser" asp-route-id="@Model.Id" method="post">
+     <div class=" form-group">
+        <label for="">Nombres</label>
+        <input name="Name" class="form-control" value="@Model.Name">
+
+        <label for="">Apellidos</label>
+        <input name="LastName" class="form-control" value="@Model.LastName">
+
+        <label for="">Email</label>
+        <input name="Email" class="form-control"value="@Model.Email" >
+
+        <label for="">BirthDate</label>
+        <input name="BirthDate" class="form-control" value="@Model.BirthDate">
+
+         <label for="">Celular</label>
+        <input name="CellPhone" class="form-control" value="@Model.CellPhone">
+
+        <button>Enviar</button>
+    </div>
+</form>

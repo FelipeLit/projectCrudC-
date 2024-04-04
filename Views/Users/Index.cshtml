@@ -40,8 +40,7 @@
             <td>
                 <a class="btn btn-info" asp-route-id="@item.Id" asp-controller="Users" asp-action="Details">Detalles</a>
                 <a class="btn btn-danger" asp-controller="Users" asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
-                <a class="btn btn-primary">Editar</a>
-
+                <a class="btn btn-primary" asp-controller="Users" asp-action="Update" asp-route-id="@item.Id">Editar</a>
             </td>
         </tr>
     }

@@ -41,7 +41,7 @@ namespace Proyecto.Controllers
         //     await _context.SaveChangesAsync();
         //     return RedirectToAction("Index");
         // }        
-        public ActionResult Create()
+        public IActionResult Create()
         {
             return View();
         }
@@ -52,5 +52,18 @@ namespace Proyecto.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
+        [HttpGet]
+        public async Task<IActionResult> Update(int? id)
+        {
+            return View(await _context.Users.FirstOrDefaultAsync(m => m.Id == id));
+        }
+
+        [HttpPost]
+        public IActionResult UpdateUser(int id, User u)
+        {
+            _context.Users.Update(u);
+            _context.SaveChanges();
+            return RedirectToAction("Index");   
+        } 
     }
 }
