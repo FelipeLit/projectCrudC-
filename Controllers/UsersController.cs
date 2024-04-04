@@ -14,7 +14,7 @@ namespace Proyecto.Controllers
         {
             _context = context;
         }
-        [HttpPost]
+       
         public async Task<IActionResult> Index(string Search)
         {
             //buscar
@@ -23,8 +23,7 @@ namespace Proyecto.Controllers
             {
                 user = user.Where(name => name.Name!.Contains(Search));
             }
-
-            return View(await _context.Users.ToListAsync());
+            return View(await user.ToListAsync());
         }
 
         public async Task<IActionResult> Details(int? id)
