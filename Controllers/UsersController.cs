@@ -14,9 +14,16 @@ namespace Proyecto.Controllers
         {
             _context = context;
         }
-
-        public async Task<IActionResult> Index()
+        [HttpPost]
+        public async Task<IActionResult> Index(string Search)
         {
+            //buscar
+            var user = from users in _context.Users select users;
+            if (!String.IsNullOrEmpty(Search))
+            {
+                user = user.Where(name => name.Name!.Contains(Search));
+            }
+
             return View(await _context.Users.ToListAsync());
         }
 

@@ -10,14 +10,21 @@
 
     <div class="col-md-8 d-flex justify-content-end align-items-end">
 
-            <form class="form-inline d-flex mb-3">
-                <input class="form-control mr-sm-2 me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
+        <form class="form-inline d-flex mb-3" asp-action="Index" asp-controller="Users" method="get">
+            <input class="form-control mr-sm-2 me-2" type="text" placeholder="Ingrese nombre" name="Search">
+            <input class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Buscar">
+        </form>
     </div>
 </div>
-
-
+ 
+@* Buscar 
+        <form asp-controller="Users" asp-action="Index">
+                <p>
+                    Title: <input type="text" name="SearchString" />
+                    <input type="submit" value="Filter" />
+                </p>
+        </form>
+Fin buscar *@
 
 <table class="table">
     <thead>
