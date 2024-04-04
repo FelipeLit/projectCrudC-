@@ -1,10 +1,26 @@
 @{
-    ViewData ["Title"] = "Inicio";
+    ViewData["Title"] = "Inicio";
 }
 <h1 class="d-flex justify-content-center align-center mb-5">Usuarios</h1>
 
-<table class="table" >
-    <thead >
+<div class="row">
+    <div class="col-md-4">
+        <a class="btn btn-success mb-3" asp-controller="Users" asp-action="Create">Crear</a>
+    </div>
+
+    <div class="col-md-8 d-flex justify-content-end align-items-end">
+
+            <form class="form-inline d-flex mb-3">
+                <input class="form-control mr-sm-2 me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+    </div>
+</div>
+
+
+
+<table class="table">
+    <thead>
         <th scope="col">Id</td>
         <th scope="col">Nombres</th>
         <th scope="col">Apellidos</th>
@@ -13,7 +29,8 @@
         <th scope="col">Acciones</th>
     </thead>
 
-    @foreach (var item in Model){
+    @foreach (var item in Model)
+    {
         <tr>
             <td>@item.Id</td>
             <td>@item.Name</td>
@@ -21,9 +38,9 @@
             <td>@item.Email</td>
             <td>@item.BirthDate</td>
             <td>
-                <a class="btn btn-primary" asp-route-id="@item.Id" asp-controller="Users" asp-action="Details">Detalles</a>
-                <a class="btn btn-danger" >Eliminar</a>
-                <a class="btn btn-success" >Crear</a>
+                <a class="btn btn-info" asp-route-id="@item.Id" asp-controller="Users" asp-action="Details">Detalles</a>
+                <a class="btn btn-danger" asp-controller="Users" asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+                <a class="btn btn-primary">Editar</a>
 
             </td>
         </tr>
