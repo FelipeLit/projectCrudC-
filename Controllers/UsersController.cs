@@ -18,7 +18,9 @@ namespace Proyecto.Controllers
         public async Task<IActionResult> Index(string Search)
         {
             //buscar
-            var user = from users in _context.Users select users;
+            IQueryable<string>nameQuery = from name in _context.Users orderby name.Name select name.Name;
+
+            var user = from users in _context.Users  select users;
             if (!String.IsNullOrEmpty(Search))
             {
                 user = user.Where(name => name.Name!.Contains(Search));
